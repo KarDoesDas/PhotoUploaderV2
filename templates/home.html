@@ -40,6 +40,7 @@
                       {% if user.is_authenticated %}
                       <li><a href="accounts/logout">Logout</a></li>
                       <li>Hello, {{user.first_name}}</li>
+                      <li><a href="accounts/delete">Delete Account</a></li>
                       {% else %}
                       <li><a href="accounts/login">Login</a></li>
                       <li><a href="accounts/register">Register</a></li>
@@ -49,7 +50,8 @@
 
                     </ul>
                   </nav>
-                  <div class="header_phone ml-auto">Call us: 072 900 2498</div>
+                  <!-- <div class="header_phone ml-auto">Call us: 072 900 2498</div> -->
+                  
   
                   <!-- Hamburger -->
   
@@ -67,9 +69,7 @@
             <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
             <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
             <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            <div class="header_phone ml-auto">Call us: 072 900 2498</div>
           </ul>
         </div>
       </header>
@@ -196,6 +196,7 @@
                         </div>
                         <div class="newsletter_form_container">
                           <form action="#"
+                          
                             class="newsletter_form d-flex flex-md-row flex-column align-items-start justify-content-between"
                             id="newsletter_form">
                             <div
