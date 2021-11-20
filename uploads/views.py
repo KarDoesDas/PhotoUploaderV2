@@ -3,7 +3,8 @@ from .models import Category, Photo
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
-
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views import View
 
 # Create your views here.
 
@@ -60,29 +61,40 @@ def addPhoto(request):
     return render(request, 'photos/add.html', context)
 
 
-@login_required(login_url='login')
-def delete_photo(request):
-    user = request.user
+# @login_required(login_url='login')
+# def delete_photo(request):
+#     user = request.user
 
-    categories = user.category_set.all()
+#     categories = user.category_set.all()
 
-    if request.method == 'POST':
-        data = request.POST
-        images = request.FILES.getlist('images')
+#     if request.method == 'POST':
+#         data = request.POST
+#         images = request.FILES.getlist('images')
 
-        if data['category'] != 'none':
-            category = Category.objects.get(id=data['category'])
-        elif data['category_new'] != '':
-            category, created = Category.objects.get_or_create(
-                user=user,
-                name=data['category_new'])
-        else:
-            category = None
+#         if data['category'] != 'none':
+#             category = Category.objects.get(id=data['category'])
+#         elif data['category_new'] != '':
+#             category, created = Category.objects.get_or_create(
+#                 user=user,
+#                 name=data['category_new'])
+#         else:
+#             category = None
 
-        for image in images:
-            photo = Photo.objects.delete(
-                category=category,
-                description=data['description'],
-                image=image,
-            )
+#         for image in images:
+#             photo = Photo.objects.delete(
+#                 category=category,
+#                 description=data['description'],
+#                 image=image,
+#             )
+
+class DeletePhoto(LoginRequiredMixin, View):
+    def get(self, request, pk):
+        photo_obj = Photo.objects.get(pk=pk)
+        photo_obj.delete()
+        return HttpResponseRedirect('photos/gallery.html')
+
+DeletePhotoView = DeletePhoto.as_view()
+
+
+
 

@@ -6,11 +6,25 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Photo</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
 </head>
+
+<script>
+    function copyURI(evt) {
+        evt.preventDefault();
+        navigator.clipboard.writeText(evt.target.getAttribute('href')).then(() => {
+        alert("URL Copied.");
+        }, () => {
+            alert("URL Copy Failed.");
+        });
+    }
+</script>
+
+
 
 <body class="m-5">
     <div class="container">
@@ -19,13 +33,16 @@
 
                 <a href="{% url 'gallery' %}" class="btn btn-dark my-3">Go Back</a>
 
-                <a href="{% url 'photo' photo.id %}" class="btn btn-dark my-3">Download Image</a>  
 
-                <a href="{{request.build_absolute_uri}}" class="btn btn-dark my-3">Share Image</a>
+                <a href="{{ photo.image.url }}" class="btn btn-dark my-3"  download="{{ photo.description }}">Download Image</a>
+                
+<!--  -->       <a href="http://127.0.0.1:8000{{photo.image.url}}"  class="btn btn-dark my-3" onclick="copyURI(event)">Share Image</a>
+
+
+<!--  -->
 
                 <td>
-                    <a href="{% url 'delete_photo' %}" class="btn btn-dark my-3">Delete Image</a>
-
+                    <a href="{% url 'photo' photo.id %}" class="btn btn-dark my-3">Delete Image</a>
                 </td>
                 
                 
