@@ -3,6 +3,8 @@ from .models import Category, Photo
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
+
+
 # Create your views here.
 
 @login_required(login_url='login')
@@ -83,3 +85,4 @@ def delete_photo(request):
                 description=data['description'],
                 image=image,
             )
+
