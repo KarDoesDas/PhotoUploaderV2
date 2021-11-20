@@ -48,13 +48,12 @@
                             </a>
                         </li>
                         {% endfor %}
-
-
                         <a href="{% url 'add' %}" class="btn btn-dark btn-block btn-sm m-1">Add Photo</a>
+                        
                         <a href="{% url 'home' %}" class="btn btn-dark btn-block btn-sm m-1">Return Home</a>
+                        
                     </ul>
                 </div>
-
             </div>
             <div class="col-md-9">
                 <div class="row">
@@ -73,13 +72,9 @@
                     {% empty %}
                     <h3>No photos...</h3>
                     {% endfor %}
-
-
                 </div>
             </div>
         </div>
     </div>
-
 </body>
-
 </html>

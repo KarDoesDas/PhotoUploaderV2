@@ -2,6 +2,9 @@ from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
+from django.forms import ClearableFileInput, ModelForm, ValidationError, HiddenInput, IntegerField
+
+from uploads.models import Photo
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
@@ -16,3 +19,12 @@ class CustomUserCreationForm(UserCreationForm):
     #         {'class': 'form-control', 'placeholder': 'Enter password...'})
     #     self.fields['password2'].widget.attrs.update(
     #         {'class': 'form-control', 'placeholder': 'Confirm password...'})
+
+
+
+
+class PhotoForm(ModelForm):
+    
+    class Meta:
+        model = Photo
+        fields = ['category', 'description', 'image']
