@@ -19,6 +19,8 @@
 
                 <a href="{% url 'gallery' %}" class="btn btn-dark my-3">Go Back</a>
 
+                <a href="{% url 'photo' photo.id %}" class="btn btn-dark my-3">Download Image</a>  
+
                 <a href="{{request.build_absolute_uri}}" class="btn btn-dark my-3">Share Image</a>
 
                 <td>

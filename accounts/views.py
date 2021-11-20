@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
+# from django.views.generic.edit import UpdateView, DeleteView
+# from .forms import CustomUserUpdateForm
 
-
-
-
+# from django.urls import reverse_lazy
+# from .models import CustomUser
 # Create your views here.
 
 
@@ -65,7 +66,10 @@ def logout(request):
     return redirect('/')   
 
 
-def delete(request, pk):
-    obj = User.objects.get(pk=pk)
-    ogj.delete()
-    return redirect('/')
+# class CustomUserUpdateView(UpdateView):
+#     model = CustomUser
+#     form_class = CustomUserUpdateform
+
+# class CustomUserDeleteView(DeleteView):
+#     model = CustomUser
+#     success_url = reverse_lazy('/')
