@@ -145,11 +145,10 @@ MEDIA_ROOT = BASE_DIR / 'static/images'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 AWS_QUERYSTRING_AUTH = False
-
+AWS_S3_ADDRESSING_STYLE = 'virtual'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 #DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 AWS_S3_ADDRESSING_STYLE = 'virtual'
 #aws buckets
@@ -159,6 +158,24 @@ AWS_STORAGE_BUCKET_NAME: 'photouploader-s3bucket'
 
 AWS_S3_REGION_NAME = 'us-east-2' 
 AWS_S3_SIGNATURE_VERSION = 's3v4'
+
+
+AWS_S3_CUSTOM_DOMAIN = os.environ.get('photouploader-s3bucket', 'photouploader-s3bucket.s3.amazonaws.com')
+
+# STATICFILES_LOCATION = 'static'
+# STATICFILES_STORAGE = 'project.storage.StaticStorage'
+# STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+
+# MEDIAFILES_LOCATION = 'media'
+# MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+# DEFAULT_FILE_STORAGE = 'project.storage.MediaStorage'
+
+
+
+
+
+
+
 
 
 # Default primary key field type

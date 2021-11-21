@@ -1,16 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
-#from .forms import UserForm
-# from django.views.generic.edit import UpdateView, DeleteView
-# from .forms import CustomUserUpdateForm
-
-# from django.urls import reverse_lazy
-# from .models import CustomUser
-# Create your views here.
-
-
-    
 
 def login(request):
     if request.method== 'POST':
@@ -65,13 +55,3 @@ def register(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')   
-
-
-# def deleteUser(request, pk):
-#     #user = request.user
-#     user = User.objects.get(id=pk)
-#     if request.method == "POST":
-#         user.delete()
-#         return redirect('')
-#     context = {'user': user}
-#     return redirect('delete.html')
