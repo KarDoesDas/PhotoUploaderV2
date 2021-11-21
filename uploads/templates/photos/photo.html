@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -10,7 +9,6 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
 </head>
 
 <script>
@@ -24,39 +22,22 @@
     }
 </script>
 
-
-
 <body class="m-5">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col">
-
                 <a href="{% url 'gallery' %}" class="btn btn-dark my-3">Go Back</a>
-
-
                 <a href="{{ photo.image.url }}" class="btn btn-dark my-3"  download="{{ photo.description }}">Download Image</a>
-                
-<!--  -->       <a href="http://127.0.0.1:8000{{photo.image.url}}"  class="btn btn-dark my-3" onclick="copyURI(event)">Share Image</a>
-
-
-<!--  -->
-
+                <a href="http://127.0.0.1:8000{{photo.image.url}}"  class="btn btn-dark my-3" onclick="copyURI(event)">Share Image</a>
                 <td>
-                    <a href="{% url 'photo' photo.id %}" class="btn btn-dark my-3">Delete Image</a>
+                    <a href="{% url 'delete_photo' photo.id %}" class="btn btn-dark my-3">Delete Image</a>
                 </td>
-                
-                
-
                 <div style="height: 90vh;">
                     <img style="max-width: 100%; max-height: 100%;" src="{{photo.image.url}}">
-
-                    <p>{{photo.description}}</p>
+                    <p>Photo: {{photo.description}}</p>
                 </div>
-
             </div>
         </div>
     </div>
-
 </body>
-
 </html>

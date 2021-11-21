@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Category, Photo
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from .forms import CustomUserCreationForm
+from .forms import PhotoForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
 
@@ -61,40 +61,23 @@ def addPhoto(request):
     return render(request, 'photos/add.html', context)
 
 
-# @login_required(login_url='login')
-# def delete_photo(request):
-#     user = request.user
 
-#     categories = user.category_set.all()
-
-#     if request.method == 'POST':
-#         data = request.POST
-#         images = request.FILES.getlist('images')
-
-#         if data['category'] != 'none':
-#             category = Category.objects.get(id=data['category'])
-#         elif data['category_new'] != '':
-#             category, created = Category.objects.get_or_create(
-#                 user=user,
-#                 name=data['category_new'])
-#         else:
-#             category = None
-
-#         for image in images:
-#             photo = Photo.objects.delete(
-#                 category=category,
-#                 description=data['description'],
-#                 image=image,
-#             )
-
-class DeletePhoto(LoginRequiredMixin, View):
-    def get(self, request, pk):
-        photo_obj = Photo.objects.get(pk=pk)
-        photo_obj.delete()
-        return HttpResponseRedirect('photos/gallery.html')
-
-DeletePhotoView = DeletePhoto.as_view()
+def deletePhoto(request, pk):
+    user = request.user
+    photo = Photo.objects.get(id=pk)
+    if request.method == "POST":
+        photo.delete()
+        return redirect('gallery')
+    context = {'photo': photo}
+    return render(request, 'photos/delete.html', context)
 
 
-
+def deleteFolder(request, pk):
+    user = request.user
+    category = Category.objects.get(id=pk)
+    if request.method == "POST":
+        category.delete()
+        return redirect('gallery')
+    context = {'category': category}
+    return render(request, 'photos/deleteFolder.html', context)
 

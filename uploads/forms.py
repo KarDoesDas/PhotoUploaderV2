@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 from django.forms import ClearableFileInput, ModelForm, ValidationError, HiddenInput, IntegerField
 
-from uploads.models import Photo
+from uploads.models import Photo, Category
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
@@ -27,4 +27,10 @@ class PhotoForm(ModelForm):
     
     class Meta:
         model = Photo
-        fields = ['category', 'description', 'image']
+        fields = '__all__'
+
+class CategoryForm(ModelForm):
+
+    class Meta:
+        model = Category
+        fields = '__all__'

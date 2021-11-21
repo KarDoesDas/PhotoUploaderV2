@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
+#from .forms import UserForm
 # from django.views.generic.edit import UpdateView, DeleteView
 # from .forms import CustomUserUpdateForm
 
@@ -66,10 +67,11 @@ def logout(request):
     return redirect('/')   
 
 
-# class CustomUserUpdateView(UpdateView):
-#     model = CustomUser
-#     form_class = CustomUserUpdateform
-
-# class CustomUserDeleteView(DeleteView):
-#     model = CustomUser
-#     success_url = reverse_lazy('/')
+# def deleteUser(request, pk):
+#     #user = request.user
+#     user = User.objects.get(id=pk)
+#     if request.method == "POST":
+#         user.delete()
+#         return redirect('')
+#     context = {'user': user}
+#     return redirect('delete.html')

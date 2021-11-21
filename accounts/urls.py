@@ -10,8 +10,9 @@ urlpatterns = [
     path("login", views.login, name="login"),
     path("logout", views.logout, name="logout"),
 
-    # path('<int:pk>/update/', CustomUserUpdateView.as_view(template_name='accounts/update.html'), name='account_update'),
-    # path('<int:pk>/delete/', CustomUserDeleteView.as_view(template_name='accounts/delete.html'), name='account_delete'),
+    #path('delete_user/<str:pk>/', views.deleteUser, name='delete_user'),
+
+    #path('account', views.account, name='account'),
 ]
    
 

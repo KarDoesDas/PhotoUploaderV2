@@ -1,8 +1,8 @@
-# class delete(forms.Form):
-#     username = forms.CharField()
 # from django.forms import ModelForm
 
 
-# class CustomUserUpdateForm(ModelForm):
+# class UserForm(ModelForm):
+    
 #     class Meta:
-#         fields = {'first_name','last_name','username','password1','password2','email'}
+#         model = User
+#         fields = '__all__'

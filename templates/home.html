@@ -17,13 +17,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
   </head>
   
-
   <body>
-
     <div class="super_container">
-  
-      <!-- Header -->
-  
       <header class="header">
         <div class="container">
           <div class="row">
@@ -35,31 +30,18 @@
                     <ul class="d-flex flex-row align-items-start justify-content-start">
                       <li class="active"><a href="">Home</a></li>
                       <li><a href = "mailto: ingwald007@gmail.com">Contact</a></li>
-                      
-
                       {% if user.is_authenticated %}
                       <li><a href="accounts/logout">Logout</a></li>
                       <li>Hello, {{user.first_name}}</li>
-                      
-                      <li><a href="accounts/account">My Account</a></li>
                       {% else %}
                       <li><a href="accounts/login">Login</a></li>
-                      <li><a href="accounts/register">Register</a></li>
-                      
+                      <li><a href="accounts/register">Register</a></li> 
                       {% endif %}
-  
-
                     </ul>
                   </nav>
-                  <!-- <div class="header_phone ml-auto">Call us: 072 900 2498</div> -->
-                  
-  
-                  <!-- Hamburger -->
-  
                   <div class="hamburger ml-auto">
                     <i class="fa fa-bars" aria-hidden="true"></i>
                   </div>
-  
                 </div>
               </div>
             </div>
@@ -67,16 +49,10 @@
         </div>
         <div class="header_social d-flex flex-row align-items-center justify-content-start">
           <ul class="d-flex flex-row align-items-start justify-content-start">
-            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
             <div class="header_phone ml-auto">Call us: 072 900 2498</div>
           </ul>
         </div>
       </header>
-  
-      <!-- Menu -->
-  
       <div class="menu">
         <div class="menu_header d-flex flex-row align-items-center justify-content-start">
           <div class="menu_logo"><a href="home.html">Photo Uploader</a></div>
@@ -97,26 +73,11 @@
         </div>
         <div class="menu_social">
           <div class="menu_phone ml-auto">Call us: 072 900 2498</div>
-          <ul class="d-flex flex-row align-items-start justify-content-start">
-            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-          </ul>
         </div>
       </div>
-  
-      <!-- Home -->
-  
       <div class="home">
-  
-        <!-- Home Slider -->
         <div class="home_slider_container">
           <div class="owl-carousel owl-theme home_slider">
-  
-            <!-- Slide -->
             <div class="owl-item">
               <div class="background_image"
                 style="background-image:url({% static 'images/Home2.jpg' %})"></div>
@@ -134,8 +95,6 @@
                 </div>
               </div>
             </div>
-  
-            <!-- Slide -->
             <div class="owl-item">
               <div class="background_image"
                 style="background-image:url({% static 'images/footer_1.jpg' %})"></div>
@@ -153,8 +112,6 @@
                 </div>
               </div>
             </div>
-  
-            <!-- Slide -->
             <div class="owl-item">
               <div class="background_image"
                 style="background-image:url({% static 'images/why_3.jpg' %})"></div>
@@ -172,14 +129,9 @@
                 </div>
               </div>
             </div>
-  
           </div>
-  
         </div>
       </div>
-
-      <!-- Footer -->
-  
       <footer class="footer">
         <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/foot1.jpg' %}" data-speed="0.8">
                 </div>
@@ -197,7 +149,6 @@
                         </div>
                         <div class="newsletter_form_container">
                           <form action="#"
-                          
                             class="newsletter_form d-flex flex-md-row flex-column align-items-start justify-content-between"
                             id="newsletter_form">
                             <div
@@ -225,8 +176,6 @@
                   <div class="row footer_contact_row">
                     <div class="col-xl-10 offset-xl-1">
                       <div class="row">
-  
-                        <!-- Footer Contact Item -->
                         <div class="col-xl-4 footer_contact_col">
                           <div
                             class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
@@ -242,8 +191,6 @@
                             </div>
                           </div>
                         </div>
-  
-                        <!-- Footer Contact Item -->
                         <div class="col-xl-4 footer_contact_col">
                           <div
                             class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
@@ -258,8 +205,6 @@
                             </div>
                           </div>
                         </div>
-  
-                        <!-- Footer Contact Item -->
                         <div class="col-xl-4 footer_contact_col">
                           <div
                             class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
@@ -276,7 +221,6 @@
                             </div>
                           </div>
                         </div>
-  
                       </div>
                     </div>
                   </div>
@@ -287,7 +231,6 @@
                 </div>
                 </footer>
               </div>
-  
               <script src="{% static 'js/jquery-3.2.1.min.js' %}">
               </script>
               <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
@@ -299,5 +242,4 @@
               <script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
               <script src="{% static 'js/custom.js' %}"></script>
   </body>
-
 </html>
